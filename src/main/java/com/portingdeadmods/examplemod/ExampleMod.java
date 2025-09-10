@@ -1,9 +1,6 @@
 package com.portingdeadmods.examplemod;
 
-import com.portingdeadmods.examplemod.registries.EMBlocks;
-import com.portingdeadmods.examplemod.registries.EMCreativeTabs;
-import com.portingdeadmods.examplemod.registries.EMItems;
-import com.portingdeadmods.examplemod.registries.EMTranslations;
+import com.portingdeadmods.examplemod.registries.*;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
@@ -28,6 +25,8 @@ public final class ExampleMod {
         EMBlocks.BLOCKS.register(modEventBus);
         EMTranslations.TRANSLATIONS.register(modEventBus);
         EMCreativeTabs.TABS.register(modEventBus);
+        EMBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
+        EMMenuTypes.MENU_TYPES.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, ExampleModConfig.SPEC);
     }
