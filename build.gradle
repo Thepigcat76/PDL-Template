@@ -11,13 +11,14 @@ tasks.named('wrapper', Wrapper).configure {
     // documentation attached on cursor hover of gradle classes and methods. However, this comes with increased
     // file size for Gradle. If you do switch this to ALL, run the Gradle wrapper task twice afterwards.
     // (Verify by checking gradle/wrapper/gradle-wrapper.properties to see if distributionUrl now points to `-all`)
-    distributionType = Wrapper.DistributionType.ALL
+    distributionType = Wrapper.DistributionType.BIN
 }
 
 version = mod_version
 group = mod_group_id
 
 repositories {
+    mavenLocal()
     maven {
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
@@ -111,7 +112,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
     from('src/main/neoforge.mods.toml') {
         rename '(.*)', 'META-INF/$1'
     }
-    into "build/generated/sources/modMetadata"
+    into 'build/generated/modMetadata'
 }
 
 sourceSets.main.resources.srcDir generateModMetadata
@@ -131,7 +132,7 @@ publishing {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.encoding = 'UTF-8'
 }
 
 idea {

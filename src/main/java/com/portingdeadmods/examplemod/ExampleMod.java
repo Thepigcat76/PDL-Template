@@ -1,5 +1,9 @@
 package com.portingdeadmods.examplemod;
 
+import com.portingdeadmods.examplemod.registries.EMBlocks;
+import com.portingdeadmods.examplemod.registries.EMCreativeTabs;
+import com.portingdeadmods.examplemod.registries.EMItems;
+import com.portingdeadmods.examplemod.registries.EMTranslations;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
@@ -14,10 +18,16 @@ import net.neoforged.fml.ModContainer;
 @Mod(ExampleMod.MODID)
 public final class ExampleMod {
     public static final String MODID = "examplemod";
+    public static final String MODNAME = "Example Mod";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ExampleMod(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::registerPayloads);
+
+        EMItems.ITEMS.register(modEventBus);
+        EMBlocks.BLOCKS.register(modEventBus);
+        EMTranslations.TRANSLATIONS.register(modEventBus);
+        EMCreativeTabs.TABS.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, ExampleModConfig.SPEC);
     }
