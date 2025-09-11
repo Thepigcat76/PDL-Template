@@ -20,8 +20,6 @@ public final class ExampleMod {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ExampleMod(IEventBus modEventBus, ModContainer modContainer) {
-        modEventBus.addListener(this::registerPayloads);
-
         EMItems.ITEMS.register(modEventBus);
         EMBlocks.BLOCKS.register(modEventBus);
         EMTranslations.TRANSLATIONS.register(modEventBus);
@@ -34,9 +32,5 @@ public final class ExampleMod {
 
     public static ResourceLocation rl(String path) {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
-    }
-
-    private void registerPayloads(RegisterPayloadHandlersEvent event) {
-        PayloadRegistrar registrar = event.registrar(MODID);
     }
 }
