@@ -12,7 +12,7 @@
 |----------|--------|
 
 ## Dependencies
-- Porting DeadLibs
+- Porting Dead Libs
 
 ## Contributors
 <a href="https://github.com/Porting-Dead-Mods/PDL-Template/graphs/contributors">
