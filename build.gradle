@@ -23,6 +23,8 @@ repositories {
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
     }
+
+    // Porting Dead Libs
     maven { url 'https://jitpack.io' }
 }
 
